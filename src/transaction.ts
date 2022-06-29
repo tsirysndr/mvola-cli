@@ -4,6 +4,8 @@ import {
   PRODUCTION_URL,
   TransactionRequest,
 } from "https://deno.land/x/mvola@0.0.4/mod.ts";
+import { colorize } from "https://deno.land/x/json_colorize@0.1.0/mod.ts";
+import { colors } from "./colors.ts";
 
 export async function sendPayment(
   debitParty: string,
@@ -11,7 +13,8 @@ export async function sendPayment(
   amount: number,
   partnerName: string,
   description: string,
-  live: boolean,
+  live = false,
+  disableColors: boolean
 ) {
   const mvola = new Client(live ? PRODUCTION_URL : SANDBOX_URL);
   const consumerKey = Deno.env.get("CONSUMER_KEY");
@@ -67,10 +70,20 @@ export async function sendPayment(
     originalTransactionReference: transactionRef,
   };
   const data = await mvola.transaction.sendPayment(tx);
-  console.log(JSON.stringify(data, null, 2));
+
+  if (disableColors) {
+    console.log(JSON.stringify(data, null, 2));
+    return;
+  }
+
+  console.log(colorize(JSON.stringify(data, null, 2), { colors }));
 }
 
-export async function getTransactionDetails(id: string, live = false) {
+export async function getTransactionDetails(
+  id: string,
+  live = false,
+  disableColors = false
+) {
   const mvola = new Client(live ? PRODUCTION_URL : SANDBOX_URL);
   const consumerKey = Deno.env.get("CONSUMER_KEY");
   const consumerSecret = Deno.env.get("CONSUMER_SECRET");
@@ -87,14 +100,21 @@ export async function getTransactionDetails(id: string, live = false) {
   });
 
   const data = await mvola.transaction.get(id);
-  console.log(JSON.stringify(data, null, 2));
+
+  if (disableColors) {
+    console.log(JSON.stringify(data, null, 2));
+    return;
+  }
+
+  console.log(colorize(JSON.stringify(data, null, 2), { colors }));
 }
 
 export async function getTransactionStatus(
   serverCorrelationId: string,
   debitParty: string,
   partnerName: string,
-  live = false
+  live = false,
+  disableColors = false
 ) {
   const mvola = new Client(live ? PRODUCTION_URL : SANDBOX_URL);
   const consumerKey = Deno.env.get("CONSUMER_KEY");
@@ -114,5 +134,11 @@ export async function getTransactionStatus(
   });
 
   const data = await mvola.transaction.getStatus(serverCorrelationId);
-  console.log(JSON.stringify(data, null, 2));
+
+  if (disableColors) {
+    console.log(JSON.stringify(data, null, 2));
+    return;
+  }
+
+  console.log(colorize(JSON.stringify(data, null, 2), { colors }));
 }

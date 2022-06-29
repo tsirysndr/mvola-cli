@@ -13,13 +13,15 @@ const consumerKey = Deno.env.get("CONSUMER_KEY");
 const consumerSecret = Deno.env.get("CONSUMER_SECRET");
 
 if (!consumerKey || !consumerSecret) {
-  console.error("CONSUMER_KEY and CONSUMER_SECRET environment variables are required");
+  console.error(
+    "CONSUMER_KEY and CONSUMER_SECRET environment variables are required"
+  );
   Deno.exit(1);
 }
 
 await new Command()
   .name("mvola")
-  .version("0.1.0")
+  .version("0.1.3")
   .description(
     `The unofficial command-line tool to interact with MVola API
 
@@ -36,7 +38,11 @@ await new Command()
     this.showHelp();
   })
   .command("generateToken", "Generate a new MVola API token")
-  .action(() => generateToken())
+  .option("-l, --live", "Use production MVola API")
+  .option("-n, --no-colors", "Disable colors")
+  .action((options) => {
+    generateToken(options.live, !options.colors);
+  })
   .command("completions", new CompletionsCommand())
   .command(
     "transactions",
@@ -48,8 +54,11 @@ await new Command()
       .option("-d, --description <description>", "Transaction description", {
         default: "Test transaction",
       })
-      .option("-p, --partnerName <partnerName>", "Partner name", { default: "TestMVola" })
-      .option("-l, --live", "Use production MVola API", { default: false })
+      .option("-p, --partnerName <partnerName>", "Partner name", {
+        default: "TestMVola",
+      })
+      .option("-l, --live", "Use production MVola API")
+      .option("-n, --no-colors", "Disable colors")
       .arguments("<debitParty> <creditParty> <amount:number>")
       .action((options, debitParty, creditParty, amount) => {
         sendPayment(
@@ -58,27 +67,35 @@ await new Command()
           amount,
           options.partnerName.toString(),
           options.description.toString(),
-          options.live
+          options.live,
+          !options.colors
         );
       })
       .command("status", "Get transaction status")
-      .option("-d, --debitParty <debitParty>", "Debit party", { required: true })
-      .option("-p, --partnerName <partnerName>", "Partner name", { default: "TestMVola" })
-      .option("-l, --live", "Use production MVola API", { default: false })
+      .option("-d, --debitParty <debitParty>", "Debit party", {
+        required: true,
+      })
+      .option("-p, --partnerName <partnerName>", "Partner name", {
+        default: "TestMVola",
+      })
+      .option("-l, --live", "Use production MVola API")
+      .option("-n, --no-colors", "Disable colors")
       .arguments("<serverCorrelationId>")
       .action((options, serverCorrelationId) => {
         getTransactionStatus(
           serverCorrelationId,
           options.debitParty!.toString(),
           options.partnerName.toString(),
-          options.live
+          options.live,
+          !options.colors
         );
       })
       .command("details", "Get transaction details")
-      .option("-l, --live", "Use production MVola API", { default: false })
+      .option("-l, --live", "Use production MVola API")
+      .option("-n, --no-colors", "Disable colors")
       .arguments("<transactionId>")
       .action((options, transactionId) => {
-        getTransactionDetails(transactionId, options.live);
+        getTransactionDetails(transactionId, options.live, !options.colors);
       })
   )
   .description("Make requests (send, status, details) on transaction endpoints")
