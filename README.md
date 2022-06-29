@@ -6,4 +6,17 @@
 
 The MVola CLI helps you build, test, and manage your [MVola API](https://www.mvola.mg/devportal) integration right from the terminal.
 
+## 🚚 Install
+
+```sh
+deno install --allow-env --allow-net -n mvola https://deno.land/x/mvola_cli/src/main.ts
+```
+Note: don't forget to add ~/.deno/bin to your PATH.
+## 🚀 Usage
+
+```sh
+mvola [command] [options]
+```
+
+
 <img src="https://raw.githubusercontent.com/tsirysndr/mvola-cli/master/preview.png" />
