@@ -9,7 +9,7 @@ The MVola CLI helps you build, test, and manage your [MVola API](https://www.mvo
 ## 🚚 Install
 
 ```sh
-deno install --allow-env --allow-net -n mvola https://deno.land/x/mvola_cli/src/main.ts
+deno install --allow-env --allow-net -n mvola https://deno.land/x/mvola_cli@0.1.4/src/main.ts
 ```
 Note: don't forget to add ~/.deno/bin to your PATH.
 ## 🚀 Usage

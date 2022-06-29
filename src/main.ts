@@ -21,7 +21,7 @@ if (!consumerKey || !consumerSecret) {
 
 await new Command()
   .name("mvola")
-  .version("0.1.3")
+  .version("0.1.4")
   .description(
     `The unofficial command-line tool to interact with MVola API
 
