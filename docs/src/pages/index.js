@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description="A Command-line tool for MVola API">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
