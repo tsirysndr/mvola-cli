@@ -8,8 +8,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'MVola CLI',
   tagline: 'A command-line tool for MVola API',
-  url: 'https://mvola-cli.github.io',
-  baseUrl: '/',
+  url: 'https://tsirysndr.github.io',
+  baseUrl: '/mvola-cli/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
