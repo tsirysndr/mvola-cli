@@ -97,7 +97,7 @@ const config = {
               },
               {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/mvola-cli',
+                href: 'https://discord.gg/yrQRbefk',
               },
               {
                 label: 'Twitter',
