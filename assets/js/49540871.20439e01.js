@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmvola_cli=self.webpackChunkmvola_cli||[]).push([[147],{5005:l=>{l.exports=JSON.parse('{"label":"facebook","permalink":"/mvola-cli/blog/tags/facebook","allTagsPath":"/mvola-cli/blog/tags","count":1}')}}]);

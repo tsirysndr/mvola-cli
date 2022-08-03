@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmvola_cli=self.webpackChunkmvola_cli||[]).push([[454],{2030:l=>{l.exports=JSON.parse('{"permalink":"/mvola-cli/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
