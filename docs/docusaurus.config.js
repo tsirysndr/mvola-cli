@@ -16,8 +16,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'tsirysndr', // Usually your GitHub org/user name.
+  projectName: 'mvola-cli', // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -37,14 +37,14 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/tsirysndr/mvola-cli/docs',
+            'https://github.com/tsirysndr/mvola-cli/tree/master/docs',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/tsirysndr/mvola-cli/docs',
+            'https://github.com/tsirysndr/mvola-cli/tree/master/docs',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
