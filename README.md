@@ -3,7 +3,7 @@
 [![deno module](https://shield.deno.dev/x/mvola_cli)](https://deno.land/x/mvola_cli)
 [![deno compatibility](https://shield.deno.dev/deno/^1.22)](https://deno.land/)
 [![](https://img.shields.io/github/workflow/status/tsirysndr/mvola-cli/CI)](https://github.com/tsirysndr/mvola-cli/actions)
-[![](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://tsirysndr.github.io/mvola-cli/)
+[![](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://tsirysndr.github.io/mvola-cli/docs/intro)
 
 The MVola CLI helps you build, test, and manage your [MVola API](https://www.mvola.mg/devportal) integration right from the terminal.
 
