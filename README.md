@@ -6,6 +6,8 @@
 [![](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://tsirysndr.github.io/mvola-cli/docs/intro)
 ![GitHub last commit](https://img.shields.io/github/last-commit/tsirysndr/mvola-cli)
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S1ETN14)
+
 The MVola CLI helps you build, test, and manage your [MVola API](https://www.mvola.mg/devportal) integration right from the terminal.
 
 ## 🚚 Install
