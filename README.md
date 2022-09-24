@@ -25,6 +25,7 @@ Note: don't forget to add ~/.deno/bin to your PATH.
 ```sh
 brew install tsirysndr/tap/mvola
 ```
+Or download the latest release for your platform [here](https://github.com/tsirysndr/mvola-cli/releases).
 ## 🚀 Usage
 
 ```sh
