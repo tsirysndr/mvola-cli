@@ -31,14 +31,21 @@ jobs:
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
       - name: Packaging final binary
         shell: bash
+        if: matrix.target != 'x86_64-pc-windows-msvc'
         run: |
           tar czvf mvola_${{ env.RELEASE_VERSION }}_${{ matrix.target }}.tar.gz mvola
-          shasum -a 512 mvola_${{ env.RELEASE_VERSION }}_${{ matrix.target }}.tar.gz > mvola_${{ env.RELEASE_VERSION }}_${{ matrix.target }}.tar.gz.sha512
+          shasum -a 256 mvola_${{ env.RELEASE_VERSION }}_${{ matrix.target }}.tar.gz > mvola_${{ env.RELEASE_VERSION }}_${{ matrix.target }}.tar.gz.sha256
+      - name: Packaging final binary
+        shell: bash
+        if: matrix.target == 'x86_64-pc-windows-msvc'
+        run: |
+          tar czvf mvola_${{ env.RELEASE_VERSION }}_${{ matrix.target }}.tar.gz mvola.exe
+          shasum -a 256 mvola_${{ env.RELEASE_VERSION }}_${{ matrix.target }}.tar.gz > mvola_${{ env.RELEASE_VERSION }}_${{ matrix.target }}.tar.gz.sha256
       - name: Releasing assets
         uses: softprops/action-gh-release@v1
         with:
           files: |
             mvola_${{ env.RELEASE_VERSION }}_${{ matrix.target }}.tar.gz
-            mvola_${{ env.RELEASE_VERSION }}_${{ matrix.target }}.tar.gz.sha512
+            mvola_${{ env.RELEASE_VERSION }}_${{ matrix.target }}.tar.gz.sha256
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
