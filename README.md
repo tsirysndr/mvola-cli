@@ -2,7 +2,8 @@
 
 [![deno module](https://shield.deno.dev/x/mvola_cli)](https://deno.land/x/mvola_cli)
 [![deno compatibility](https://shield.deno.dev/deno/^1.22)](https://deno.land/)
-[![](https://img.shields.io/github/workflow/status/tsirysndr/mvola-cli/CI)](https://github.com/tsirysndr/mvola-cli/actions)
+[![ci](https://github.com/tsirysndr/mvola-cli/actions/workflows/ci.yaml/badge.svg)](https://github.com/tsirysndr/mvola-cli/actions/workflows/ci.yaml)
+[![cd](https://github.com/tsirysndr/mvola-cli/actions/workflows/cd.yaml/badge.svg)](https://github.com/tsirysndr/mvola-cli/actions/workflows/cd.yaml)
 [![](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://tsirysndr.github.io/mvola-cli/docs/intro)
 ![GitHub last commit](https://img.shields.io/github/last-commit/tsirysndr/mvola-cli)
 
